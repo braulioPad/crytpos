@@ -83,18 +83,32 @@ function showGreeting(message) {
             const symbol = data.symbol;
             const volumeChange = data.volumeChange;
             const volume = data.volume;
+            const time = new Date().toLocaleTimeString();
 
-             $("#greetings").append(`
-            <tr>
-                <td>Symbol: ${symbol}</td>
-            </tr>
-            <tr>
-                <td>Volume Change: ${volumeChange}</td>
-            </tr>
-            <tr>
-                <td>Volume: ${volume}</td>
-            </tr>
-        `);
+            // Check if table header is already present, if not add it
+            if ($("#cryptoInfo thead").length === 0) {
+                $("#cryptoInfo").append(`
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Symbol</th>
+                            <th>Volume Change</th>
+                            <th>Volume</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                `);
+            }
+
+            // Add the data to the table body
+            $("#cryptoInfo tbody").append(`
+                <tr>
+                    <td>${time}</td>
+                    <td>${symbol}</td>
+                    <td>${volumeChange}</td>
+                    <td>${volume}</td>
+                </tr>
+            `);
         } else {
             console.error('Data is missing required properties:', data);
         }
