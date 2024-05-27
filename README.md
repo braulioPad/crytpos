@@ -26,6 +26,8 @@ This application connects to a WebSocket server to receive cryptocurrency order 
    ```bash
    git clone https://github.com/yourusername/crypto-websocket-app.git
    cd crypto-websocket-app
+   run Springboot app
+   website URL `http://localhost:8080`
 
 Acknowledgments
 STOMP.js for the WebSocket client library.
